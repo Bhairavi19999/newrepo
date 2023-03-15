@@ -2,7 +2,8 @@ package com.xworkz.application.apprunn;
 
 import java.time.LocalDate;
 
-import com.xworkz.application.applicationServiceimp.Applicationimp;
+import com.xworkz.application.applicationService.ApplicationService;
+import com.xworkz.application.applicationService.ApplicationServiceImp;
 import com.xworkz.application.dto.ApplicationDTO;
 import com.xworkz.application.dto.constants.Langused;
 import com.xworkz.application.dto.constants.OsType;
@@ -13,7 +14,7 @@ public class Runner {
 		ApplicationDTO applicationDTO = new ApplicationDTO();
 		applicationDTO.setName("INSTAGRAM");
 		applicationDTO.setTrialDays(8);
-		applicationDTO.setType(Type.BANKINGAPPLICATION);
+		applicationDTO.setType(Type.SOCIALMEDIA);
 		applicationDTO.setVersion(2.0);
 		applicationDTO.setSize(10);
 		applicationDTO.setDevelopedBy("ramkumar");
@@ -30,8 +31,8 @@ public class Runner {
 		applicationDTO.setRating(4);
 		applicationDTO.setOsTypeSupported(OsType.ANDROID);
 		applicationDTO.setLangUsed(Langused.JAVA);
-		Applicationimp application = new Applicationimp();
-		application.validandsave(applicationDTO);
+		ApplicationService application = new ApplicationServiceImp();
+		System.out.println("saved:"+application.validandsave(applicationDTO));
 
 	}
 

@@ -196,14 +196,14 @@ public class ApplicationDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ApplicationDTO [name=" + name + ", type=" + type + ", version=" + version + ", size=" + size
-				+ ", developedBy=" + developedBy + ", createDate=" + createDate + ", price=" + price
-				+ ", firstVersionReleasedDate=" + firstVersionReleasedDate + ", currentVersionReleasedDate="
-				+ currentVersionReleasedDate + ", nextVersionReleasedDate=" + nextVersionReleasedDate + ", trialDays="
-				+ trialDays + ", langUsed=" + langUsed + ", minProcessorSpeed=" + minProcessorSpeed
-				+ ", minRamSpaceRequired=" + minRamSpaceRequired + ", internetNeeded=" + internetNeeded + ", ageLimit="
-				+ ageLimit + ", noOfDownloads=" + noOfDownloads + ", rating=" + rating + ", osTypeSupported="
-				+ osTypeSupported + "]";
+		return "ApplicationDTO [name=" + name + "\n type=" + type + "\n version=" + version + "\n size=" + size
+				+ "\n developedBy=" + developedBy + "\n createDate=" + createDate + "\n price=" + price
+				+ "\n firstVersionReleasedDate=" + firstVersionReleasedDate + "\n currentVersionReleasedDate="
+				+ currentVersionReleasedDate + "\n nextVersionReleasedDate=" + nextVersionReleasedDate + "\n trialDays="
+				+ trialDays + "\n langUsed=" + langUsed + "\n minProcessorSpeed=" + minProcessorSpeed
+				+ "\n minRamSpaceRequired=" + minRamSpaceRequired + "\n internetNeeded=" + internetNeeded
+				+ "\n ageLimit=" + ageLimit + "\n noOfDownloads=" + noOfDownloads + "\n rating=" + rating
+				+ "\n osTypeSupported=" + osTypeSupported + "]";
 	}
 
 	private String name;

@@ -1,4 +1,4 @@
-package com.xworkz.application.applicationServiceimp;
+package com.xworkz.application.applicationService;
 
 import java.time.LocalDate;
 
@@ -8,12 +8,12 @@ import com.xworkz.application.dto.constants.Langused;
 import com.xworkz.application.dto.constants.OsType;
 import com.xworkz.application.dto.constants.Type;
 
-public class Applicationimp implements ApplicationService {
+public class ApplicationServiceImp implements ApplicationService {
 
 	@Override
 	public boolean validandsave(ApplicationDTO dto) {
 		if (dto != null) {
-			System.out.println("dto is not null");
+			System.out.println("dto is not null"+dto);
 			String name = dto.getName();
 			Type type = dto.getType();
 			double version = dto.getVersion();
@@ -177,9 +177,11 @@ public class Applicationimp implements ApplicationService {
 					&& validminminRamSpaceRequired && validinternetNeeded && validageLimit && validnoOfDownloads
 					&& validrating && validosTypeSupported) {
 				System.out.println("data is valid");
+				return true;
 
 			} else {
 				System.err.println("data is invalid");
+				return false;
 			}
 
 		} else {
