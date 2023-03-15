@@ -22,7 +22,7 @@ public class ApplicationRunner {
 		System.out.println("equals is:" + attendenceDTO.equals(attendenceDTO));
 		System.out.println("hashcode is:" + attendenceDTO.hashCode());
 		System.out.println("    ");
-
+		
 		TravelDTO travelDTO = new TravelDTO();
 		travelDTO.setFrom("tum");
 		travelDTO.setTo("goa");
@@ -45,17 +45,7 @@ public class ApplicationRunner {
 		System.out.println("hashcode is:" + marketDTO.hashCode());
 		System.out.println("    ");
 
-		ApplicationDTO applicationDTO = new ApplicationDTO();
-		applicationDTO.setName("facebook");
-		applicationDTO.setDevelopedBy("kumar");
-		applicationDTO.setLaunchedOn(LocalDate.of(2015, 8, 02));
-		applicationDTO.setVersion(2.3);
-		applicationDTO.setCurrentlyUsedBy("raj");
-		System.out.println(applicationDTO);
-		System.out.println("equals is:" + applicationDTO.equals(applicationDTO));
-		System.out.println("hashcode is:" + applicationDTO.hashCode());
-		System.out.println("    ");
-
+		
 		AwarenessDTO awarenessDTO = new AwarenessDTO();
 		awarenessDTO.setCreatedBy("gov");
 		awarenessDTO.setDate(LocalDate.of(2011, 2, 20));
