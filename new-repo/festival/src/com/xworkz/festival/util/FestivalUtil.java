@@ -1,10 +1,9 @@
-package com.xworkz.headphone.util;
+package com.xworkz.festival.util;
 
 import java.time.LocalDate;
 
-public class HeadphoneUtil {
-	private HeadphoneUtil() {
-
+public class FestivalUtil {
+	private FestivalUtil() {
 	}
 
 	public static boolean validString(String value) {
@@ -15,23 +14,15 @@ public class HeadphoneUtil {
 	}
 
 	public static boolean validInt(int num) {
-		if (num > 0 && num < 100000) {
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean validDouble(double number) {
-		if (number > 0 && number < 10000) {
+		if (num > 0) {
 			return true;
 		}
 		return false;
 	}
 
 	public static boolean validDate(LocalDate date) {
-		LocalDate day = LocalDate.now().plusDays(1);
-		LocalDate after = LocalDate.of(2020, 1, 1);
-		if (date != null && date.isBefore(day) && date.isAfter(after)) {
+		LocalDate day = LocalDate.now();
+		if (date != null && date.isAfter(day)) {
 			return true;
 		}
 		return false;

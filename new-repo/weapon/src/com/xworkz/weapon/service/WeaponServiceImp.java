@@ -4,8 +4,15 @@ import java.time.LocalDate;
 
 import com.xworkz.weapon.constant.Type;
 import com.xworkz.weapon.dto.WeaponDTO;
+import com.xworkz.weapon.repo.WeaponRepo;
+import com.xworkz.weapon.util.WeaponUtil;
 
 public class WeaponServiceImp implements WeaponService {
+	private WeaponRepo weaponRepo;
+
+	public WeaponServiceImp(WeaponRepo weaponRepo) {
+		this.weaponRepo = weaponRepo;
+	}
 
 	@Override
 	public boolean ValidateAndSave(WeaponDTO dto) {
@@ -34,62 +41,61 @@ public class WeaponServiceImp implements WeaponService {
 			boolean validusedby = false;
 			boolean validusedfor = false;
 			boolean validweight = false;
-			if (name != null && !name.isEmpty() && name.length() > 3 && name.length() < 30) {
+			if (WeaponUtil.validString(name)) {
 				System.out.println("name is valid");
 				validname = true;
 			} else {
 				System.err.println("name is invalid");
 			}
-			if (id > 0 && id < 10) {
+			if (WeaponUtil.validInt(id)) {
 				System.out.println("id is valid");
 				validid = true;
 			} else {
 				System.err.println("id is invalid");
 			}
-			if (cost > 100 && cost < 100000) {
+			if (WeaponUtil.validDouble(cost)) {
 				System.out.println("cost is valid");
 				validcost = true;
 			} else {
 				System.err.println("cost is invalid");
 			}
-			if (material != null && !material.isEmpty() && material.length() > 3 && material.length() < 30) {
+			if (WeaponUtil.validString(material)) {
 				System.out.println("material is valid");
 				validmaterial = true;
 			} else {
 				System.err.println("material is invalid");
 			}
-			if (by != null && !by.isEmpty() && by.length() > 3 && by.length() < 30) {
+			if (WeaponUtil.validString(by)) {
 				System.out.println("madeby is valid");
 				validby = true;
 			} else {
 				System.err.println("madeby is invalid");
 			}
-			if (company != null && !company.isEmpty() && company.length() > 3 && company.length() < 30) {
+			if (WeaponUtil.validString(company)) {
 				System.out.println("manufactured by is valid");
 				validcompany = true;
 			} else {
 				System.err.println("manufactured by is invalid");
 			}
-			LocalDate past = LocalDate.of(2000, 8, 20);
-			if (date != null && date.isAfter(past)) {
+			if (WeaponUtil.validDate(date)) {
 				System.out.println("manufactured date is valid");
 				validdate = true;
 			} else {
 				System.err.println("manufactured date is invalid");
 			}
-			if (usedby != null && !usedby.isEmpty() && usedby.length() > 3 && usedby.length() < 30) {
+			if (WeaponUtil.validString(usedby)) {
 				System.out.println("usedby is valid");
 				validusedby = true;
 			} else {
 				System.err.println("usedby is invalid");
 			}
-			if (usedfor != null && !usedfor.isEmpty() && usedfor.length() > 3 && usedfor.length() < 30) {
+			if (WeaponUtil.validString(usedfor)) {
 				System.out.println("usedfor is valid");
 				validusedfor = true;
 			} else {
 				System.err.println("usedfor is invalid");
 			}
-			if (weight > 0 && weight < 500) {
+			if (WeaponUtil.validDouble(weight)) {
 				System.out.println("weight is vali");
 				validweight = true;
 			} else {
@@ -101,17 +107,16 @@ public class WeaponServiceImp implements WeaponService {
 			} else {
 				System.err.println("type is invalid");
 			}
-			if (validid && validname && validtype && validcost && validmaterial && validby && validcompany && validdate
-					&& validusedby && validusedfor && validweight) {
+			if (WeaponUtil.valiFlag(validid, validname, validtype, validcost, validmaterial, validby, validcompany,
+					validdate, validusedby, validusedfor, validweight)) {
 				System.out.println("data is valid and save successfully");
-				return true;
+				boolean save = this.weaponRepo.save(dto);
+				return save;
 			} else {
 				System.err.println("data is invalid");
 				return false;
 			}
-		} else
-
-		{
+		} else {
 			System.err.println("obj is null");
 		}
 		return false;

@@ -1,9 +1,10 @@
-package com.xworkz.headphone.util;
+package com.xworkz.weapon.util;
 
 import java.time.LocalDate;
 
-public class HeadphoneUtil {
-	private HeadphoneUtil() {
+public class WeaponUtil {
+
+	private WeaponUtil() {
 
 	}
 

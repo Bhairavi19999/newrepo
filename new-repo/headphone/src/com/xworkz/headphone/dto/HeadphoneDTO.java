@@ -113,7 +113,7 @@ public class HeadphoneDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "HeadphoneDTO [brand=" + brand + "\n modelNo=" + modelNo + "\n price=" + price + "\n bass=" + bass
+		return "\nHeadphoneDTO [brand=" + brand + "\n modelNo=" + modelNo + "\n price=" + price + "\n bass=" + bass
 				+ "\n color=" + color + "\n weightAndType=" + weightAndType + "\n customerName=" + customerName
 				+ "\n invoiceNo=" + invoiceNo + "\n mfgDate=" + mfgDate + "\n warrantyPeriod=" + warrantyPeriod + "]";
 	}

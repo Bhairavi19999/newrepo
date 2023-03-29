@@ -1,11 +1,11 @@
 package com.xworkz.headphone.constants;
 
 public enum WeightAndType {
-	BLUETOOTH(30, 40), WIRELESS(50, 50);
+	BLUETOOTH(30), WIRELESS(50);
 
 	private final double weight;
 
-	private WeightAndType(double weight, double type) {
+	private WeightAndType(double weight) {
 		this.weight = weight;
 
 	}
