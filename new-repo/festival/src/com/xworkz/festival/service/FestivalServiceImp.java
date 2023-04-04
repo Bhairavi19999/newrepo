@@ -18,6 +18,7 @@ public class FestivalServiceImp implements FestivalService {
 	public boolean ValidateAndSave(FestivalDTO dto) throws InvalidFestivalException {
 		System.out.println("running ValidateAndSave in FestivalServiceImp" + dto);
 		if (dto != null) {
+			System.out.println("dto is not null");
 			int id = dto.getId();
 			String name = dto.getName();
 			String sweet = dto.getSweet();
@@ -76,7 +77,7 @@ public class FestivalServiceImp implements FestivalService {
 			}
 			
 		} else {
-			System.err.println("obj is null");
+			System.err.println("dto is null");
 		}
 
 		return false;
