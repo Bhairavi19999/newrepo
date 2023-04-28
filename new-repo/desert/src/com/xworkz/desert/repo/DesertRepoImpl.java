@@ -10,7 +10,7 @@ public class DesertRepoImpl implements DesertRepo {
 	public boolean save(DesertDTO desertDTO) {
 		if (desertindex < desertDTOs.length) {
 			this.desertDTOs[desertindex] = desertDTO;
-			System.out.println("dto is saved at index :" + desertindex + " " + desertDTO);
+			System.out.println("dto is saved at index :" + this.desertindex + " " + desertDTO);
 			this.desertindex++;
 			return true;
 		} else {
@@ -24,7 +24,8 @@ public class DesertRepoImpl implements DesertRepo {
 		for (int index = 0; index < this.desertDTOs.length; index++) {
 			DesertDTO element = this.desertDTOs[index];
 			if (element.equals(dto)) {
-				System.out.println("dto is find");
+				System.out.println("dto is find:" + dto);
+				return element;
 			}
 		}
 
@@ -36,7 +37,7 @@ public class DesertRepoImpl implements DesertRepo {
 	public DesertDTO findByName(String name) {
 		for (int index = 0; index < this.desertDTOs.length; index++) {
 			DesertDTO element = this.desertDTOs[index];
-			if (element.getName().equals(name)) {
+			if (element != null && element.getName().equals(name)) {
 				System.out.println("name is presnt:" + name);
 			}
 		}
@@ -47,7 +48,7 @@ public class DesertRepoImpl implements DesertRepo {
 	public DesertDTO findAreaByName(String name) {
 		for (int index = 0; index < this.desertDTOs.length; index++) {
 			DesertDTO element = this.desertDTOs[index];
-			if (element.getArea().equals(name)) {
+			if (element != null && element.getArea().equals(name)) {
 				System.out.println("area is presnt:" + name);
 			}
 		}
@@ -58,10 +59,11 @@ public class DesertRepoImpl implements DesertRepo {
 	public DesertDTO findByNameAndCountryAndArea(String name, String country, String area) {
 		for (int index = 0; index < this.desertDTOs.length; index++) {
 			DesertDTO element = this.desertDTOs[index];
-			if (element.getName().equals(name) && element.getCountry().equals(country)
+			if (element != null && element.getName().equals(name) && element.getCountry().equals(country)
 					&& element.getArea().equals(area)) {
-				System.out.println("name is presnt:" + name + " " + "country is present:" + country + "  "
+				System.out.println("name is presnt:" + name + "     " + "country is present:" + country + "     "
 						+ "area is presnt :" + area);
+				return element;
 			}
 		}
 		return null;
@@ -69,6 +71,22 @@ public class DesertRepoImpl implements DesertRepo {
 
 	@Override
 	public int total() {
-		return 0;
+		return this.desertindex;
+	}
+
+	@Override
+	public boolean isExist(DesertDTO dto) {
+		if (this.desertindex == 0) {
+			return false;
+		} else {
+			for (int index = 0; index < this.desertDTOs.length; index++) {
+				DesertDTO element = this.desertDTOs[index];
+				if (element != null && element.equals(dto)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 }

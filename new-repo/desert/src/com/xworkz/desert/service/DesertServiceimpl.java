@@ -67,9 +67,12 @@ public class DesertServiceimpl implements DesertService {
 			}
 			if (DesertUtil.valiFlag(validid, validname, validcountry, validarea, validmaxTemp, validminTemp)) {
 				System.out.println("data is valid and save successfully");
-				boolean save = this.desertRepo.save(dto);
-				return save;
+				boolean exist = this.desertRepo.isExist(dto);
+				if (!exist) {
+					boolean save = this.desertRepo.save(dto);
+					return save;
 
+				}
 			} else {
 				System.err.println("data is invalid");
 			}
@@ -82,11 +85,8 @@ public class DesertServiceimpl implements DesertService {
 
 	@Override
 	public DesertDTO find(DesertDTO dto) {
-		if (validAndSave(dto)) {
-			return this.find(dto);
 
-		}
-		return null;
+		return desertRepo.find(dto);
 
 	}
 
@@ -110,13 +110,13 @@ public class DesertServiceimpl implements DesertService {
 	@Override
 	public DesertDTO findByNameAndCountryAndArea(String name, String country, String area) {
 		if (validString(name) && validString(country) && validString(area)) {
-			return this.findByNameAndCountryAndArea(name, country, area);
+			return this.desertRepo.findByNameAndCountryAndArea(name, country, area);
 		}
 		return null;
 	}
 
 	@Override
 	public int total() {
-		return 0;
+		return this.desertRepo.total();
 	}
 }

@@ -6,8 +6,8 @@ import java.util.Objects;
 public class DesertDTO implements Serializable {
 	@Override
 	public String toString() {
-		return "DesertDTO \n[id=" + id + "\n name=" + name + "\n country=" + country + "\n area=" + area + "\n maxTemp="
-				+ maxTemp + "\n minTemp=" + minTemp + "]";
+		return "\nDesertDTO \n id=" + id + "\n name=" + name + "\n country=" + country + "\n area=" + area + "\n maxTemp="
+				+ maxTemp + "\n minTemp=" + minTemp + " ";
 	}
 
 	@Override

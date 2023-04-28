@@ -21,7 +21,7 @@ public class Runner {
 		applicationDTO.setCreateDate(LocalDate.of(2005, 4, 10));
 		applicationDTO.setPrice(10);
 		applicationDTO.setFirstVersionReleasedDate(LocalDate.of(2015, 4, 20));
-		applicationDTO.setCurrentVersionReleasedDate(LocalDate.of(2022, 5, 25));
+		applicationDTO.setCurrentVersionReleasedDate(LocalDate.of(2023, 5, 25));
 		applicationDTO.setNextVersionReleasedDate(LocalDate.of(2027, 6, 11));
 		applicationDTO.setMinProcessorSpeed(20);
 		applicationDTO.setMinRamSpaceRequired(23);
@@ -31,6 +31,8 @@ public class Runner {
 		applicationDTO.setRating(4);
 		applicationDTO.setOsTypeSupported(OsType.ANDROID);
 		applicationDTO.setLangUsed(Langused.JAVA);
+		
+		
 		ApplicationService application = new ApplicationServiceImp();
 		System.out.println("saved:"+application.validandsave(applicationDTO));
 

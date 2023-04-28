@@ -5,6 +5,8 @@ import com.xworkz.desert.dto.DesertDTO;
 public interface DesertRepo {
 	boolean save(DesertDTO desertDTO);
 
+	boolean isExist(DesertDTO dto);
+
 	DesertDTO find(DesertDTO dto);
 
 	DesertDTO findByName(String name);

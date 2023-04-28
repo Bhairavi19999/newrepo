@@ -5,9 +5,18 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 import com.xworkz.application.dto.constants.Langused;
 import com.xworkz.application.dto.constants.OsType;
 import com.xworkz.application.dto.constants.Type;
+
+import io.smallrye.common.constraint.NotNull;
 
 public class ApplicationDTO implements Serializable {
 
@@ -206,16 +215,26 @@ public class ApplicationDTO implements Serializable {
 				+ "\n osTypeSupported=" + osTypeSupported + "]";
 	}
 
+	@NotNull
+	@NotEmpty
+	@Size(min=3, max=20)
 	private String name;
 	private Type type;
 	private double version;
 	private double size;
+	@NotNull
+	@NotEmpty
+	@Size(min=3, max=20)
 	private String developedBy;
 	private LocalDate createDate;
 	private double price;
+	@Past
 	private LocalDate firstVersionReleasedDate;
+	@Future
 	private LocalDate currentVersionReleasedDate;
 	private LocalDate nextVersionReleasedDate;
+	@Min(value=1)
+	@Max(value=10)
 	private int trialDays;
 	private Langused langUsed;
 	private double minProcessorSpeed;
