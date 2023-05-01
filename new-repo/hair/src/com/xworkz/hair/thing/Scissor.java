@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Scissor {
 	private String type;
+	@Value("0.5")
+
 	private double weight;
 	@Value("purple")
 	private String color;

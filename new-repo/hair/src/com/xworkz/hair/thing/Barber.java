@@ -7,10 +7,17 @@ import org.springframework.stereotype.Component;
 public class Barber {
 
 	private String name;
+	@Value("3")
 	private int experience;
+	@Value("3000")
+
 	private int salary;
+	@Value("30")
+
 	private int age;
-	private int contactno;
+	@Value("9988776655")
+
+	private long contactno;
 	@Value("male")
 	private String gender;
 

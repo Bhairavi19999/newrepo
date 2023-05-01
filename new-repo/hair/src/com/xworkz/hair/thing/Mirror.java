@@ -5,7 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Mirror {
+	@Value("1.5")
+
 	private double weight;
+	@Value("12")
+
 	private double height;
 	private String shape;
 

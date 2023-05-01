@@ -12,6 +12,7 @@ public class Saloon {
 	private String type;
 	@Value("tumkur")
 	private String location;
+	@Value("2")
 	private int noOfBarbers;
 
 	public Saloon(@Value("ravi") String name) {

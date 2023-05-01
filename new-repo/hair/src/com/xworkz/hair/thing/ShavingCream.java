@@ -6,7 +6,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ShavingCream {
 	private String brand;
+	@Value("1500")
+
 	private int price;
+	@Value("0.9")
+
 	private double weight;
 
 	public ShavingCream(@Value("fairnees") String brand) {

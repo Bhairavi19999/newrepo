@@ -10,7 +10,11 @@ public class HairDryer {
 	private String type;
 	@Value("red")
 	private String color;
+	@Value("1")
+
 	private double weight;
+	@Value("100")
+
 	private int rpm;
 
 	public HairDryer(@Value("LG") String brand) {

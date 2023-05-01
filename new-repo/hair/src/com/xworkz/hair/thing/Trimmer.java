@@ -8,7 +8,11 @@ public class Trimmer {
 	private String brand;
 	@Value("black")
 	private String color;
+	@Value("2000")
+
 	private int price;
+	@Value("0.3")
+
 	private double height;
 
 	public Trimmer(@Value("vega") String brand) {
