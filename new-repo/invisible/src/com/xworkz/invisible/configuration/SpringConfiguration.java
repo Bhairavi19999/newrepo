@@ -97,17 +97,16 @@ public class SpringConfiguration {
 	}
 
 	@Bean
-	public List drink() {
+	public List<String> drink() {
 		List<String> drink = new ArrayList();
 		drink.add("cock");
 		drink.add("pepsi");
-
 		return drink;
 
 	}
 
 	@Bean
-	public ArrayList god() {
+	public ArrayList<String> god() {
 		ArrayList<String> god = new ArrayList();
 		god.add("shiva");
 		god.add("parvati");

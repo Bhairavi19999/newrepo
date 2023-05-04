@@ -2,6 +2,7 @@ package com.xworkz.invisible.thing;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 @Component
 public class Animal {
 	private String name;
@@ -31,11 +32,11 @@ public class Animal {
 	@Value("white")
 	private String color;
 
-	public Animal(@Value("cow")String name) {
+	public Animal(@Value("cow") String name) {
 		System.out.println("ruuning animal");
 		this.name = name;
 	}
-	
+
 	public String gender() {
 		System.out.println(" gender in animal");
 		return "male";
@@ -47,9 +48,5 @@ public class Animal {
 				+ name4 + ", name5=" + name5 + ", name6=" + name6 + ", name7=" + name7 + ", name8=" + name8 + ", name9="
 				+ name9 + ", type=" + type + ", price=" + price + ", color=" + color + "]";
 	}
-
-	
-	
-	
 
 }
