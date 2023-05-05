@@ -1,35 +1,41 @@
 package com.xworkz.showroom.Service;
-
 import java.util.Set;
-
 import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import com.xworkz.showroom.Repository.ShowRoomRepo;
 import com.xworkz.showroom.dto.ShoeShowRoomDTO;
+
 @Component
-public class ShowRoomServiceImpl implements ShowRoomService{
+public class ShowRoomServiceImpl implements ShowRoomService {
+	private ShowRoomRepo shRepo;
+	
+	private Validator validator;
+	
+
+	public ShowRoomServiceImpl(ShowRoomRepo shRepo, Validator validator) {
+		super();
+		this.shRepo = shRepo;
+		this.validator = validator;
+	}
+
+
 
 	@Override
-	public boolean validandsave(ShoeShowRoomDTO dto) {
+	public boolean validateandsave(ShoeShowRoomDTO dto) {
 		if (dto != null) {
-			System.out.println("dto is not null");
-			ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-			Validator validator = factory.getValidator();
-			Set<ConstraintViolation<ShoeShowRoomDTO>> cvs = validator.validate(dto);
-			System.out.println("no. of contraints: " + cvs.size());
-
-			if (cvs != null && !cvs.isEmpty()) {
-				cvs.forEach(c -> System.out.println(c.getPropertyPath() + " " + c.getMessage()));
-			}else {
-				
-				System.out.println("dto saved");
-				return true;
-			}
+			System.out.println("dto is not null"+dto);
 			
+			Set<ConstraintViolation<ShoeShowRoomDTO>> constraintViolations = validator.validate(dto);
+
+			if (constraintViolations!=null && !constraintViolations.isEmpty()) {
+				System.out.println("total violation:" + constraintViolations.size());
+				constraintViolations.forEach(cv -> System.err.println(cv.getPropertyPath() + " " + cv.getMessage()));
+			} else {
+				System.out.println("dto saved");
+				return this.shRepo.save(dto);
+			}
 
 		} else {
 			System.err.println("dto is null");
