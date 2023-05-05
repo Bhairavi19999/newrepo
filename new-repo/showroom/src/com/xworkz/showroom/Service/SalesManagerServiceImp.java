@@ -6,10 +6,11 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.xworkz.showroom.Repository.SalesManagerRepo;
 import com.xworkz.showroom.dto.SalesManagerDTO;
-
+@Component
 public class SalesManagerServiceImp implements SalesManagerService{
 	@Autowired
 	private SalesManagerRepo salRepo;

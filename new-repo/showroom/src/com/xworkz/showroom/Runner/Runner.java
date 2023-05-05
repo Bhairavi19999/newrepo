@@ -34,11 +34,10 @@ public class Runner {
 		boolean save2 = salesManagerService.validandsave(serviceimpl1);
 		System.out.println("save:" + save2);
 		System.out.println("           ");
-		
-		
-		SockService scService = spring.getBean(SockService.class);
+
+		SockService sockService = spring.getBean(SockService.class);
 		SockDTO dto2 = new SockDTO("zup");
-		boolean save3 = scService.validandsave(dto2);
+		boolean save3 = sockService.validandsave(dto2);
 		System.out.println("save:" + save3);
 		System.out.println("           ");
 

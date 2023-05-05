@@ -3,11 +3,13 @@ package com.xworkz.showroom.Repository;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.stereotype.Component;
+
 import com.xworkz.showroom.Service.SalesManagerService;
 import com.xworkz.showroom.dto.PolishDTO;
 import com.xworkz.showroom.dto.SalesManagerDTO;
-
-public class SalesManagerRepoIml implements SalesManagerService {
+@Component
+public class SalesManagerRepoIml implements SalesManagerRepo {
 	Collection<SalesManagerDTO> salesManagerDTOs = new ArrayList<>();
 
 	public SalesManagerRepoIml(Collection<SalesManagerDTO> salesManagerDTOs) {
@@ -20,8 +22,8 @@ public class SalesManagerRepoIml implements SalesManagerService {
 	}
 
 	@Override
-	public boolean validandsave(SalesManagerDTO dto) {
-		return salesManagerDTOs.add(dto);
+	public boolean save(SalesManagerDTO salesManagerDTO) {
+		return this.salesManagerDTOs.add(salesManagerDTO);
 	}
 
 }

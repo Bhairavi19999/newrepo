@@ -6,11 +6,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.xworkz.showroom.Repository.SockRepo;
 import com.xworkz.showroom.dto.PolishDTO;
 import com.xworkz.showroom.dto.SockDTO;
-
+@Component
 public class SockServiceImp implements SockService{
 	@Autowired
 	private SockRepo sockRepo;
@@ -22,7 +23,7 @@ public class SockServiceImp implements SockService{
 			System.out.println("dto is not null" + dto);
 			Set<ConstraintViolation<SockDTO>> constraintViolations = this.validator.validate(dto);
 
-			if (!constraintViolations.isEmpty()) {
+			if (constraintViolations!=null &&!constraintViolations.isEmpty()) {
 				System.out.println("total violation:" + constraintViolations.size());
 				constraintViolations.forEach(c -> System.err.println(c.getPropertyPath() + " " + c.getMessage()));
 			} else {

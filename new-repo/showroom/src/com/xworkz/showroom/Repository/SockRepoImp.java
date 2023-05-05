@@ -3,8 +3,10 @@ package com.xworkz.showroom.Repository;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.xworkz.showroom.dto.SockDTO;
+import org.springframework.stereotype.Component;
 
+import com.xworkz.showroom.dto.SockDTO;
+@Component
 public class SockRepoImp implements SockRepo{
 	Collection<SockDTO> sockDTOs = new ArrayList<>();
 

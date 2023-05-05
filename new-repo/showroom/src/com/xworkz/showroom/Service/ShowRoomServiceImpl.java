@@ -9,8 +9,9 @@ import com.xworkz.showroom.dto.ShoeShowRoomDTO;
 
 @Component
 public class ShowRoomServiceImpl implements ShowRoomService {
+	@Autowired
 	private ShowRoomRepo shRepo;
-	
+	@Autowired
 	private Validator validator;
 	
 
