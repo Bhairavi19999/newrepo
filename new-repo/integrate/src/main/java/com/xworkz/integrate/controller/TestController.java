@@ -33,7 +33,7 @@ public class TestController {
 	private List<AccountDTO> list = new ArrayList<AccountDTO>();
 
 	@Autowired
-	//private AccountService service;
+	private AccountService service;
 
 	public TestController() {
 		log.info("running TestController...");
@@ -64,7 +64,7 @@ public class TestController {
 			list.add(dto);
 			log.info("calling save and validate....");
 			log.info("list:" + list);
-			//service.validateAndSave(dto);
+			service.validateAndSave(dto);
 			File physicalFile = new File(Constant.FILE_LOCATION + dto.getFileName());
 			try (OutputStream os = new FileOutputStream(physicalFile)) {
 				os.write(file.getBytes());

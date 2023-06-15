@@ -63,7 +63,7 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
 	}
 
 	public void setComments(String comments) {
-		comments = comments;
+		this.comments = comments;
 	}
 
 	public String getFileName() {

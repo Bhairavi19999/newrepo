@@ -73,7 +73,7 @@ public class AccountEntity {
 	}
 
 	public void setComments(String comments) {
-		comments = comments;
+		this.comments = comments;
 	}
 
 	public String getFileName() {

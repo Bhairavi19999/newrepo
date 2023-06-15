@@ -61,7 +61,7 @@
 		
 		<div class="col-md-4">
 			<label for="inputCity" class="form-label">Contact Number</label> <input
-				type="number" class="form-control" name="contactNo" value="${dto.contactNo }"><br>
+				type="text" class="form-control" name="contactNo" value="${dto.contactNo }"><br>
 		</div>
 		<div class="col-md-4">
 			<label for="inputCity" class="form-label">Comment</label> <input
@@ -69,7 +69,7 @@
 		</div>
 		
 	Select File<input type="file" name="file"><br> <br>
-		<input type="submit" value="submit">
+		<input type="submit" value="save">
 	</form>
 </body>
 <script>
